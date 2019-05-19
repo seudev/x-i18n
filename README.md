@@ -123,7 +123,7 @@ export default props => (
 Alternatively you can use the `getMessage`:
 
 ```javascript
-import { getMessage } from '@seudev/x-i18n/Message';
+import { getMessage } from '@seudev/x-i18n/es/Message';
 
 <div>
     <h1>{getMessage('foo.bar')}<h1>
