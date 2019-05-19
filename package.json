@@ -35,7 +35,7 @@
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0"
   },
-  "author": "Thomás Sousa Silva <thomas@seudev.com>",
+  "author": "Thomás Sousa Silva <thomassousa.dev>",
   "homepage": "http://x-i18n.seudev.com",
   "license": "Apache-2.0",
   "repository": {
