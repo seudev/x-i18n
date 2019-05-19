@@ -1,6 +1,6 @@
 {
   "name": "@seudev/x-i18n",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A React library that use Redux to internationalize the messages of your app.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -19,14 +19,9 @@
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server"
   },
-  "dependencies": {},
-  "peerDependencies": {
-    "react": "16.x"
-  },
-  "devDependencies": {
-    "@seudev/js-error": "0.0.2",
+  "dependencies": {
+    "@seudev/js-error": "^0.0.2",
     "luxon": "^1.13.3",
-    "nwb": "0.23.x",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
@@ -34,6 +29,20 @@
     "redux-multi": "^0.1.12",
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@seudev/js-error": "^0.0.2",
+    "luxon": "^1.13.3",
+    "react": "16.x",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1",
+    "redux-multi": "^0.1.12",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "nwb": "0.23.x",
+    "redux-devtools": "^3.5.0"
   },
   "author": "Thomás Sousa Silva <thomassousa.dev>",
   "homepage": "http://x-i18n.seudev.com",
