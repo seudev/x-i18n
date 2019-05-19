@@ -1,0 +1,55 @@
+{
+  "name": "@seudev/x-i18n",
+  "version": "0.0.1",
+  "description": "A React library that use Redux to internationalize the messages of your app.",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "css",
+    "es",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "build": "nwb build-react-component --copy-files",
+    "clean": "nwb clean-module && nwb clean-demo",
+    "prepublishOnly": "npm run build",
+    "start": "nwb serve-react-demo",
+    "test": "nwb test-react",
+    "test:coverage": "nwb test-react --coverage",
+    "test:watch": "nwb test-react --server"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "16.x"
+  },
+  "devDependencies": {
+    "@seudev/js-error": "0.0.2",
+    "luxon": "^1.13.3",
+    "nwb": "0.23.x",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1",
+    "redux-multi": "^0.1.12",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "author": "Thomás Sousa Silva <thomas@seudev.com>",
+  "homepage": "http://x-i18n.seudev.com",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seudev/x-i18n.git"
+  },
+  "bugs": {
+    "url": "https://github.com/seudev/x-i18n/issues"
+  },
+  "keywords": [
+    "i18n",
+    "internationalization",
+    "react",
+    "redux",
+    "Seudev"
+  ]
+}

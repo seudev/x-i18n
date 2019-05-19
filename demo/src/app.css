@@ -1,0 +1,108 @@
+body {
+  margin: 8px;
+}
+header {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+}
+
+header h1 {
+  font-weight: 900;
+  font-size: 35px;
+  font-family: monospace;
+}
+
+header h2 {
+  color: white;
+  margin: 1px;
+  font-size: 20px;
+}
+
+select {
+  height: 32px;
+  margin: 0.5rem;
+}
+
+button {
+  height: 32px;
+  margin: 0.5rem;
+}
+
+#examples,
+#x-i18n-state {
+  border: 2px solid black;
+  border-top: none;
+  padding: 15px;
+}
+
+h3,
+h2 {
+  color: black;
+}
+
+#x-i18n-state {
+  font-size: 12px;
+  font-family: monospace;
+  overflow: auto;
+  color: blue;
+}
+
+.corner {
+  width: 0;
+  height: 0;
+  border-top: 150px solid #ffcc00;
+  border-bottom: 150px solid transparent;
+  border-left: 150px solid transparent;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.corner span {
+  position: absolute;
+  top: -110px;
+  width: 100px;
+  left: -100px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 900;
+  color: black;
+  font-family: arial;
+  transform: rotate(45deg);
+  display: block;
+}
+
+#examples summary {
+  cursor: pointer;
+  outline: none;
+  color: #ff0072;
+  font-family: monospace;
+  margin-bottom: 5px;
+}
+
+.result {
+  background-color: #c3c3c3;
+  padding: 10px 15px;
+  color: #0a650a;
+}
+
+.result p {
+  margin: 0;
+}
+
+@media (min-width: 769px) {
+  main {
+    display: flex;
+  }
+
+  #examples,
+  #x-i18n-state {
+    width: 50%;
+  }
+  #x-i18n-state {
+    margin-left: 8px;
+  }
+}
