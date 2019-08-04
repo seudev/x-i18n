@@ -1,6 +1,6 @@
 {
   "name": "@seudev/x-i18n",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A React library that use Redux to internationalize the messages of your app.",
   "main": "lib/index.js",
   "module": "es/index.js",
