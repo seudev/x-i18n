@@ -1,30 +1,18 @@
 import React, { Component } from 'react';
 
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-
-import { i18nActions } from '../../src';
 import Header from './Header';
 import Examples from './Examples';
+import I18n from '../../src';
 import en from './i18n/en';
 import './app.css';
 
 class App extends Component {
 
-    componentWillMount() {
-        this.props.xi18n({
-            fallback: en,
-            all: [
-                "en",
-                "pt-BR"
-            ],
-            messagesProvider: lang => import(`./i18n/${lang}`)
-        });
-    }
-
     render() {
         return (
             <React.Fragment>
+                <I18n init={{ fallback: en, all: ['en', 'pt-BR'], messagesProvider: lang => import(`./i18n/${lang}`) }} />
                 <Header/>
                 <main>
                     <Examples />
@@ -44,6 +32,4 @@ const mapStateToProps = state => ({
     i18n: state.i18n
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(i18nActions, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

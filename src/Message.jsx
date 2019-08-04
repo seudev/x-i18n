@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
-import JSError from '@seudev/js-error';
-import { connect } from 'react-redux'
+import React from 'react';
 
-import { getState } from './i18nActions';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import JSError from '@seudev/js-error';
+import { getState } from './I18n';
 
 const PARAMS = "params";
 
-const getNestedValue = (obj, key, defaultValue) => {
+export const getNestedValue = (obj, key, defaultValue) => {
     if (obj != null) {
         key = key.replace(/\[(\w+)\]/g, '.$1'); // convert indexes to properties
         key = key.replace(/^\./, '');           // strip a leading dot
@@ -84,37 +85,50 @@ export const getMessage = (id, params = {}, defaultMessage) => {
         }
         return interpolate(template, params);
     } catch (ex) {
-        throw new JSError({
+        console.error(new JSError({
             name: "MessageError",
-            message: `Cannot get the message with id: "${id}".`,
+            message: `Cannot get the message with the id: "${id}".`,
             data: { id, params, defaultMessage }
-        }, ex);
+        }, ex));
+        return "";
     }
 }
 
-class Message extends Component {
-
-    render() {
-        const message = getMessage(this.props.id, this.props.params, this.props.default);
-        const messages = ((message instanceof Array) ? message : [message]);
-        const ElementType = (this.props.as || React.Fragment);
-        return (
-            <React.Fragment>
-                {messages.map((message, index) => {
-                    if (this.props.rawHtml) {
-                        return (
-                            <ElementType key={index} dangerouslySetInnerHTML={{ __html: message }} />
-                        );
-                    }
+const Message = props => {
+    const { id, params, rawHtml } = props;
+    const message = getMessage(id, params, props.default);
+    const messages = ((message instanceof Array) ? message : [message]);
+    const ElementType = (props.as || React.Fragment);
+    return (
+        <React.Fragment>
+            {messages.map((message, index) => {
+                if (rawHtml) {
                     return (
-                        <ElementType key={index}>{message}</ElementType>
+                        <ElementType key={index} dangerouslySetInnerHTML={{ __html: message }} />
                     );
-                })}
-            </React.Fragment>
-        );
-    }
+                }
+                return (
+                    <ElementType key={index}>{message}</ElementType>
+                );
+            })}
+        </React.Fragment>
+    );
+};
 
-}
+Message.propTypes = {
+    id: PropTypes.string,
+    params: PropTypes.object,
+    rawHtml: PropTypes.bool,
+    default: PropTypes.string,
+    as: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.elementType
+    ]),
+};
+
+Message.defaultProps = {
+
+};
 
 const mapStateToProps = state => ({
     i18n: state.i18n

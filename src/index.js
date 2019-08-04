@@ -1,19 +1,7 @@
-import { DateTime } from 'luxon';
-import { getState } from './i18nActions';
+import I18n from './I18n';
 
-export { default as i18nActions } from './i18nActions';
+export { default as i18nActions, xi18n, setLang, tryUseNavigatorLang } from './i18nActions';
 export { default as i18nReducer } from './i18nReducer';
-export { default as Message } from './Message';
-
-export const getCurrentLang = () => {
-  const i18n = getState();
-  return i18n.lang.current;
-}
-
-export const formatDate = (date, options, lang) => {
-  if (date instanceof Date) {
-    return date.toLocaleDateString(lang || getCurrentLang(), options || {});
-  } else if (date instanceof DateTime) {
-    return date.setLocale(lang || getCurrentLang()).toLocaleString(options || {});
-  }
-}
+export { default as Message, getMessage, getNestedValue } from './Message';
+export { getCurrentLang, formatDate } from './I18n';
+export default I18n;
