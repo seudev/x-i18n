@@ -1,35 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import { connect } from 'react-redux';
 import Header from './Header';
-import Examples from './Examples';
+import Main from './Main';
 import I18n from '../../src';
 import en from './i18n/en';
 import './app.css';
 
-class App extends Component {
+const i18nConfig = {
+    fallback: en,
+    langs: ['en', 'pt-BR'],
+    messagesProvider: lang => import(`./i18n/${lang}`)
+};
 
-    render() {
-        return (
-            <React.Fragment>
-                <I18n init={{ fallback: en, all: ['en', 'pt-BR'], messagesProvider: lang => import(`./i18n/${lang}`) }} />
-                <Header/>
-                <main>
-                    <Examples />
-                    <div id="x-i18n-state">
-                        <h2>i18n state</h2>
-                        <pre>
-                            <code>{JSON.stringify(this.props.i18n, null, 4)}</code>
-                        </pre>
-                    </div>
-                </main>
-            </React.Fragment>
-        );
-    }
-}
+const App = props => {
+    return (
+        <I18n lang='en' config={i18nConfig}>
+            <Header />
+            <Main />
+        </I18n>
+    );
+};
 
-const mapStateToProps = state => ({
-    i18n: state.i18n
-});
-
-export default connect(mapStateToProps)(App);
+export default App;
