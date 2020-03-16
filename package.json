@@ -1,7 +1,7 @@
 {
   "name": "@seudev/x-i18n",
-  "version": "0.0.5",
-  "description": "A React library that use Redux to internationalize the messages of your app.",
+  "version": "2.0.0",
+  "description": "A React library that use hooks to internationalize the messages of your app.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -21,27 +21,14 @@
   },
   "dependencies": {
     "@seudev/js-error": "^0.0.2",
-    "luxon": "^1.17.2",
+    "luxon": "^1.22.0",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-redux": "^7.1.0",
-    "redux": "^4.0.4",
-    "redux-promise": "^0.6.0",
-    "redux-thunk": "^2.3.0"
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
   },
-  "peerDependencies": {
-    "@seudev/js-error": "^0.0.2",
-    "luxon": "^1.17.2",
-    "react": "16.x",
-    "react-redux": "^7.1.0",
-    "redux": "^4.0.4",
-    "redux-promise": "^0.6.0",
-    "redux-thunk": "^2.3.0"
-  },
+  "peerDependencies": {},
   "devDependencies": {
-    "nwb": "0.23.x",
-    "redux-devtools": "^3.5.0"
+    "nwb": "^0.24.3"
   },
   "author": "Thomás Sousa Silva <thomassousa.dev>",
   "homepage": "http://x-i18n.seudev.com",
@@ -57,7 +44,6 @@
     "i18n",
     "internationalization",
     "react",
-    "redux",
     "Seudev"
   ]
 }

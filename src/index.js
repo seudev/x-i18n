@@ -1,7 +1,5 @@
 import I18n from './I18n';
 
-export { default as i18nActions, xi18n, setLang, tryUseNavigatorLang } from './i18nActions';
-export { default as i18nReducer } from './i18nReducer';
-export { default as Message, getMessage, getNestedValue } from './Message';
-export { getCurrentLang, formatDate } from './I18n';
+export { default as Message } from './Message';
+export { I18nContext, useI18n, formatDate, getMessage, getNestedValue } from './I18n';
 export default I18n;
