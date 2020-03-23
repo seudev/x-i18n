@@ -106,10 +106,17 @@ export const getTemplate = (id, defaultTemplate) => {
             }
             return defaultTemplate;
         }
-        let template = getNestedValue(messages[lang], id);
-        if (template == null) {
-            template = getNestedValue(messages[fallback], id);
+        let template = null;
+        const ids = (id instanceof Array) ? id : [id];
+        for (let key of ids) {
+            template = getNestedValue(messages[lang], key);
+            if (template == null) {
+                template = getNestedValue(messages[fallback], key);
+            } else {
+                break;
+            }
         }
+
         if ((template == null) && (defaultTemplate == null)) {
             throw new JSError(`Not found template for the id: "${id}", in the language${lang === fallback ? ` "${lang}"` : `s "${lang}" and "${fallback}"`}.`);
         }

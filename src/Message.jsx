@@ -28,7 +28,10 @@ const Message = props => {
 };
 
 Message.propTypes = {
-    id: PropTypes.string,
+    id: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string)
+    ]),
     params: PropTypes.object,
     rawHtml: PropTypes.bool,
     default: PropTypes.string,
