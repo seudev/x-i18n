@@ -14,7 +14,7 @@ const i18nConfig = {
 
 const App = props => {
     return (
-        <I18n lang='en' config={i18nConfig}>
+        <I18n tryUseNavigatorLang config={i18nConfig}>
             <Header />
             <Main />
         </I18n>

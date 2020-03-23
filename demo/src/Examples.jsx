@@ -9,9 +9,9 @@ const Example = props => (
             <summary>
                 <code>
                     {`<Message
-                        ${props.rawHtml ? "rawHtml " : ''} 
+                        ${props.rawHtml ? "rawHtml " : ''}
                         ${props.as ? `as="${props.as}" ` : ''}
-                        id="${props.id}" 
+                        id=${(props.id instanceof Array) ? `{[${props.id.map(id => `"${id}"`)}]}` : `"${props.id}"`}
                         ${props.params ? `params={${JSON.stringify(props.params)}} ` : ''}
                         ${props.default ? `default="${props.default}" ` : ''}
                     />`}
@@ -39,5 +39,8 @@ export default props => (
         <Example title="Message of fallback lang" id="example.fallback" />
         <Example title="Message with html tag" as="div" id="example.withHtmlTag" rawHtml />
         <Example title="Default message" id="example.defaultMessage" default="This is the default message" />
+        <Example title="Multiple keys" id={["example.message1", "example.message2", "example.multipleIds"]} />
+        <Example title="Multiple keys with default value" id={["example.message1", "example.message2", "example.message3"]} default="This is the default message" />
+        <Example title="Multiple keys with parameters" id={["example.message1", "example.multipleIdsWithParameters"]} params={{ name: "Jhonny" }} />
     </div>
 );

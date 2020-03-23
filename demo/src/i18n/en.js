@@ -18,7 +18,9 @@ export default {
                 "This is the message from index 2"
             ],
             fallback: "This message was defined only in english.",
-            withHtmlTag: "This message has a <strong>HTML tag<strong/>."
+            withHtmlTag: "This message has a <strong>HTML tag<strong/>.",
+            multipleIds: "This message is displayed becase not found a message with the id equal to \"example.message1\" or \"example.message2\".",
+            multipleIdsWithParameters: "Hello ${name}! This message is displayed becase not found a message with the id equal to \"example.message1\"."
         },
     }
 };

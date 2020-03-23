@@ -17,7 +17,9 @@ export default {
                 "Isto é a mensagem do index 1",
                 "Isto é a mensagem do index 2",
             ],
-            withHtmlTag: "Esta mensagem tem uma <strong>tag HTML<strong/>."
+            withHtmlTag: "Esta mensagem tem uma <strong>tag HTML<strong/>.",
+            multipleIds: "Esta mensagem é exibida porque não foi encontrado uma mensagen com o id igual a \"example.message1\" ou \"example.message2\".",
+            multipleIdsWithParameters: "Olá ${name}! Esta mensagem é exibida porque não foi encontrado uma a mensagen com o id igual a \"example.message1\"."
         },
     }
 };
