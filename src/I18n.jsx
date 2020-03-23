@@ -174,7 +174,7 @@ export const getMessage = (id, params = {}, defaultMessage) => {
     }
 }
 
-const I18n = ({ lang, config: { fallback, langs, messagesProvider }, children }) => {
+const I18n = ({ lang, tryUseNavigatorLang, config: { fallback, langs, messagesProvider }, children }) => {
     const [state, setState] = React.useState({
         lang: fallback.id,
         fallback: fallback.id,
@@ -185,17 +185,24 @@ const I18n = ({ lang, config: { fallback, langs, messagesProvider }, children })
     });
 
     const setLang = buildSetLang(state, setState, messagesProvider);
+    const _tryUseNavigatorLang = buildTryUseNavigatorLang(state.langs, setLang);
+
+    if (lang) {
+        React.useEffect(() => {
+            if (state.lang !== lang) {
+                setLang(lang);
+            }
+        }, [lang]);
+    }
 
     React.useEffect(() => {
-        if (state.lang !== lang) {
-            setLang(lang);
-        }
-    }, [lang]);
+        _tryUseNavigatorLang();
+    }, [tryUseNavigatorLang]);
 
     const i18n = {
         ...state,
         setLang: setLang,
-        tryUseNavigatorLang: buildTryUseNavigatorLang(state.langs, setLang),
+        tryUseNavigatorLang: _tryUseNavigatorLang,
         getMessage,
         formatDate
     };
@@ -221,7 +228,7 @@ I18n.propTypes = {
 };
 
 I18n.defaultValues = {
-    tryUseNavigatorLang: true
+    tryUseNavigatorLang: false
 };
 
 export default I18n;
