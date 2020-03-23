@@ -195,9 +195,11 @@ const I18n = ({ lang, tryUseNavigatorLang, config: { fallback, langs, messagesPr
         }, [lang]);
     }
 
-    React.useEffect(() => {
-        _tryUseNavigatorLang();
-    }, [tryUseNavigatorLang]);
+    if (tryUseNavigatorLang) {
+        React.useEffect(() => {
+            _tryUseNavigatorLang();
+        }, [tryUseNavigatorLang]);
+    }
 
     const i18n = {
         ...state,
