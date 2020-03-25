@@ -112,7 +112,8 @@ export const getTemplate = (id, defaultTemplate) => {
             template = getNestedValue(messages[lang], key);
             if (template == null) {
                 template = getNestedValue(messages[fallback], key);
-            } else {
+            }
+            if (template != null) {
                 break;
             }
         }

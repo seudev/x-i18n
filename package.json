@@ -1,6 +1,6 @@
 {
   "name": "@seudev/x-i18n",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A React library that use hooks to internationalize the messages of your app.",
   "main": "lib/index.js",
   "module": "es/index.js",
