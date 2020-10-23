@@ -1,6 +1,6 @@
 {
   "name": "@seudev/x-i18n",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A React library that use hooks to internationalize the messages of your app.",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -20,15 +20,15 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
-    "@seudev/js-error": "^0.0.2",
-    "luxon": "^1.22.0",
+    "@seudev/js-error": "0.0.2",
+    "luxon": "^1.25.0",
     "prop-types": "^15.7.2",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "peerDependencies": {},
   "devDependencies": {
-    "nwb": "^0.24.3"
+    "nwb": "^0.25.2"
   },
   "author": "Thomás Sousa Silva <thomassousa.dev>",
   "homepage": "http://x-i18n.seudev.com",
