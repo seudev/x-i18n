@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect, createContext, useContext } from 'react';
 
 import PropTypes from 'prop-types';
 import { DateTime } from 'luxon';
 import JSError from '@seudev/js-error';
-import { } from './Message';
 
 export const formatDate = (date, options, lang) => {
-    const language = lang ? lang : useI18n().lang;
+    const i18n = useI18n();
+    const language = lang ? lang : i18n.lang;
 
     if (date instanceof Date) {
         return date.toLocaleDateString(language, options || {});
@@ -77,9 +77,9 @@ const buildTryUseNavigatorLang = (langs, setLang) => () => {
     });
 };
 
-export const I18nContext = React.createContext();
+export const I18nContext = createContext();
 
-export const useI18n = () => React.useContext(I18nContext);
+export const useI18n = () => useContext(I18nContext);
 
 export const getNestedValue = (obj, key, defaultValue) => {
     if (obj != null) {
@@ -176,7 +176,7 @@ export const getMessage = (id, params = {}, defaultMessage) => {
 }
 
 const I18n = ({ lang, tryUseNavigatorLang, config: { fallback, langs, messagesProvider }, children }) => {
-    const [state, setState] = React.useState({
+    const [state, setState] = useState({
         lang: fallback.id,
         fallback: fallback.id,
         langs: langs,
@@ -188,19 +188,17 @@ const I18n = ({ lang, tryUseNavigatorLang, config: { fallback, langs, messagesPr
     const setLang = buildSetLang(state, setState, messagesProvider);
     const _tryUseNavigatorLang = buildTryUseNavigatorLang(state.langs, setLang);
 
-    if (lang) {
-        React.useEffect(() => {
-            if (state.lang !== lang) {
-                setLang(lang);
-            }
-        }, [lang]);
-    }
+    useEffect(() => {
+        if (lang && state.lang !== lang) {
+            setLang(lang);
+        }
+    }, [lang]);
 
-    if (tryUseNavigatorLang) {
-        React.useEffect(() => {
+    useEffect(() => {
+        if (tryUseNavigatorLang) {
             _tryUseNavigatorLang();
-        }, [tryUseNavigatorLang]);
-    }
+        }
+    }, [tryUseNavigatorLang]);
 
     const i18n = {
         ...state,
