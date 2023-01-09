@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@seudev/js-error": "0.0.2",
-    "luxon": "^1.25.0",
+    "luxon": "^2.5.2",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
